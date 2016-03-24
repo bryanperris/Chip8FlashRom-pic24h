@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c glcd.c graphics.c graphs.c PCD8544.c PIC24H.c text.c text_tiny.c unit_tests.c
+SOURCEFILES_QUOTED_IF_SPACED=glcd.c graphics.c graphs.c PCD8544.c PIC24H.c text.c text_tiny.c unit_tests.c main.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/glcd.o ${OBJECTDIR}/graphics.o ${OBJECTDIR}/graphs.o ${OBJECTDIR}/PCD8544.o ${OBJECTDIR}/PIC24H.o ${OBJECTDIR}/text.o ${OBJECTDIR}/text_tiny.o ${OBJECTDIR}/unit_tests.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/glcd.o.d ${OBJECTDIR}/graphics.o.d ${OBJECTDIR}/graphs.o.d ${OBJECTDIR}/PCD8544.o.d ${OBJECTDIR}/PIC24H.o.d ${OBJECTDIR}/text.o.d ${OBJECTDIR}/text_tiny.o.d ${OBJECTDIR}/unit_tests.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/glcd.o ${OBJECTDIR}/graphics.o ${OBJECTDIR}/graphs.o ${OBJECTDIR}/PCD8544.o ${OBJECTDIR}/PIC24H.o ${OBJECTDIR}/text.o ${OBJECTDIR}/text_tiny.o ${OBJECTDIR}/unit_tests.o ${OBJECTDIR}/main.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/glcd.o.d ${OBJECTDIR}/graphics.o.d ${OBJECTDIR}/graphs.o.d ${OBJECTDIR}/PCD8544.o.d ${OBJECTDIR}/PIC24H.o.d ${OBJECTDIR}/text.o.d ${OBJECTDIR}/text_tiny.o.d ${OBJECTDIR}/unit_tests.o.d ${OBJECTDIR}/main.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/glcd.o ${OBJECTDIR}/graphics.o ${OBJECTDIR}/graphs.o ${OBJECTDIR}/PCD8544.o ${OBJECTDIR}/PIC24H.o ${OBJECTDIR}/text.o ${OBJECTDIR}/text_tiny.o ${OBJECTDIR}/unit_tests.o
+OBJECTFILES=${OBJECTDIR}/glcd.o ${OBJECTDIR}/graphics.o ${OBJECTDIR}/graphs.o ${OBJECTDIR}/PCD8544.o ${OBJECTDIR}/PIC24H.o ${OBJECTDIR}/text.o ${OBJECTDIR}/text_tiny.o ${OBJECTDIR}/unit_tests.o ${OBJECTDIR}/main.o
 
 # Source Files
-SOURCEFILES=main.c glcd.c graphics.c graphs.c PCD8544.c PIC24H.c text.c text_tiny.c unit_tests.c
+SOURCEFILES=glcd.c graphics.c graphs.c PCD8544.c PIC24H.c text.c text_tiny.c unit_tests.c main.c
 
 
 CFLAGS=
@@ -82,13 +82,6 @@ MP_LINKER_FILE_OPTION=,--script=p24HJ32GP202.gld
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/main.o.d 
-	@${RM} ${OBJECTDIR}/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -relaxed-math -legacy-libc  -I"C:/Program Files (x86)/Microchip/xc16/v1.26/include" -I"C:/Program Files (x86)/Microchip/xc16/v1.26/support/generic/h" -O0 -msmart-io=1 -Wall -msfr-warn=off  
-	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
 ${OBJECTDIR}/glcd.o: glcd.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/glcd.o.d 
@@ -145,14 +138,14 @@ ${OBJECTDIR}/unit_tests.o: unit_tests.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  unit_tests.c  -o ${OBJECTDIR}/unit_tests.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/unit_tests.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -relaxed-math -legacy-libc  -I"C:/Program Files (x86)/Microchip/xc16/v1.26/include" -I"C:/Program Files (x86)/Microchip/xc16/v1.26/support/generic/h" -O0 -msmart-io=1 -Wall -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/unit_tests.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-else
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"        -g -omf=elf -relaxed-math -legacy-libc  -I"C:/Program Files (x86)/Microchip/xc16/v1.26/include" -I"C:/Program Files (x86)/Microchip/xc16/v1.26/support/generic/h" -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -relaxed-math -legacy-libc  -I"C:/Program Files (x86)/Microchip/xc16/v1.26/include" -I"C:/Program Files (x86)/Microchip/xc16/v1.26/support/generic/h" -O0 -msmart-io=1 -Wall -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+else
 ${OBJECTDIR}/glcd.o: glcd.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/glcd.o.d 
@@ -208,6 +201,13 @@ ${OBJECTDIR}/unit_tests.o: unit_tests.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/unit_tests.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  unit_tests.c  -o ${OBJECTDIR}/unit_tests.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/unit_tests.o.d"        -g -omf=elf -relaxed-math -legacy-libc  -I"C:/Program Files (x86)/Microchip/xc16/v1.26/include" -I"C:/Program Files (x86)/Microchip/xc16/v1.26/support/generic/h" -O0 -msmart-io=1 -Wall -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/unit_tests.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/main.o.d 
+	@${RM} ${OBJECTDIR}/main.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"        -g -omf=elf -relaxed-math -legacy-libc  -I"C:/Program Files (x86)/Microchip/xc16/v1.26/include" -I"C:/Program Files (x86)/Microchip/xc16/v1.26/support/generic/h" -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 
