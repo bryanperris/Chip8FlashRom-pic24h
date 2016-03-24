@@ -384,8 +384,6 @@ uint16 EEPROMFlashRom(char * name, const byte * buffer, const uint16 size, const
 /* Main program entry point */
 int main(void) 
 {
-    
-    
     uint16 address = 0;
     
     /* Init the LCD and setup text write mode */
